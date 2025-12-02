@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api', // Endereço da sua API Node.js
+    baseURL: 'https://conecta-saber-backend.onrender.com/api', // Endereço da sua API Node.js
 });
 
 // Interceptor: Antes de cada requisição, insere o Token (se existir)
