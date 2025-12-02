@@ -1,0 +1,377 @@
+:root {
+   /* --- PALETA DE CORES (Identidade Visual) --- */
+   --primary-color: #4F46E5;      /* Índigo vibrante (Ação principal) */
+   --primary-hover: #4338CA;      /* Índigo mais escuro (Hover) */
+   --secondary-color: #64748B;    /* Cinza azulado (Texto secundário) */
+   
+   --background-body: #F1F5F9;    /* Cinza muito claro (Fundo da página) */
+   --background-card: #FFFFFF;    /* Branco puro (Fundo de cartões) */
+   --background-input: #F8FAFC;   /* Fundo de inputs */
+   
+   --text-main: #0F172A;          /* Quase preto (Texto principal) */
+   --text-muted: #64748B;         /* Cinza (Texto de apoio) */
+   
+   --danger: #EF4444;             /* Vermelho (Erro) */
+   --success: #10B981;            /* Verde (Sucesso) */
+   
+   /* --- ESPAÇAMENTO E BORDAS --- */
+   --radius-sm: 6px;
+   --radius-md: 12px;
+   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+ }
+ 
+ /* Reset Básico */
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ body {
+   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+   background-color: var(--background-body);
+   color: var(--text-main);
+   line-height: 1.6;
+   min-height: 100vh;
+ }
+ 
+ /* Elementos de Formulário Globais */
+ input, select, textarea {
+   width: 100%;
+   padding: 12px 16px;
+   border: 1px solid #E2E8F0;
+   border-radius: var(--radius-sm);
+   background-color: var(--background-input);
+   font-size: 1rem;
+   transition: all 0.2s;
+   outline: none;
+ }
+ 
+ input:focus {
+   border-color: var(--primary-color);
+   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); /* Anel de foco acessível */
+ }
+ 
+ button {
+   cursor: pointer;
+   padding: 12px 24px;
+   border: none;
+   border-radius: var(--radius-sm);
+   font-weight: 600;
+   font-size: 1rem;
+   transition: background-color 0.2s, transform 0.1s;
+ }
+ 
+ button:active {
+   transform: scale(0.98);
+ }
+ 
+ /* Botão Primário (Padrão) */
+ .btn-primary {
+   background-color: var(--primary-color);
+   color: white;
+ }
+ 
+ .btn-primary:hover {
+   background-color: var(--primary-hover);
+ }
+ 
+ /* Botão Secundário (Logout, Cancelar) */
+ .btn-secondary {
+   background-color: transparent;
+   color: var(--secondary-color);
+   border: 1px solid #E2E8F0;
+ }
+ 
+ .btn-secondary:hover {
+   background-color: #F8FAFC;
+   color: var(--text-main);
+ }
+
+ /* --- LOGIN STYLES --- */
+.login-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+ }
+ 
+ .login-card {
+   background: var(--background-card);
+   padding: 40px;
+   width: 100%;
+   max-width: 400px;
+   border-radius: var(--radius-md);
+   box-shadow: var(--shadow-lg);
+   animation: slideUp 0.5s ease-out;
+ }
+ 
+ @keyframes slideUp {
+   from { opacity: 0; transform: translateY(20px); }
+   to { opacity: 1; transform: translateY(0); }
+ }
+ 
+ .login-header {
+   text-align: center;
+   margin-bottom: 32px;
+ }
+ 
+ .logo {
+   color: var(--primary-color);
+   font-size: 1.8rem;
+   font-weight: 800;
+   letter-spacing: -0.5px;
+ }
+ 
+ .subtitle {
+   color: var(--text-muted);
+   font-size: 0.95rem;
+ }
+ 
+ .login-form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+ }
+ 
+ .form-group {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   text-align: left;
+ }
+ 
+ .form-group label {
+   font-size: 0.9rem;
+   font-weight: 500;
+   color: var(--text-main);
+ }
+ 
+ .alert-error {
+   background-color: #FEF2F2;
+   color: var(--danger);
+   padding: 10px;
+   border-radius: var(--radius-sm);
+   font-size: 0.9rem;
+   text-align: center;
+   border: 1px solid #FECACA;
+ }
+ 
+ .login-footer {
+   margin-top: 24px;
+   text-align: center;
+   font-size: 0.85rem;
+   color: var(--text-muted);
+ }
+
+ /* --- DASHBOARD STYLES --- */
+.dashboard-layout {
+   min-height: 100vh;
+   background-color: var(--background-body);
+ }
+ 
+ .navbar {
+   background: var(--background-card);
+   padding: 0 32px;
+   height: 64px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: var(--shadow-sm);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+ }
+ 
+ .navbar-brand {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+ }
+ 
+ .navbar-brand h2 {
+   font-size: 1.25rem;
+   color: var(--primary-color);
+ }
+ 
+ .badge-role {
+   background-color: #EEF2FF;
+   color: var(--primary-color);
+   padding: 4px 8px;
+   border-radius: 99px;
+   font-size: 0.75rem;
+   font-weight: 700;
+   text-transform: uppercase;
+ }
+ 
+ .navbar-user {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   font-size: 0.9rem;
+ }
+ 
+ .btn-sm {
+   padding: 6px 16px;
+   font-size: 0.85rem;
+ }
+ 
+ .content-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 32px;
+ }
+ 
+ .page-header {
+   margin-bottom: 32px;
+ }
+ 
+ .page-header h1 {
+   font-size: 1.8rem;
+   color: var(--text-main);
+ }
+ 
+ .stats-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 24px;
+ }
+ 
+ .stat-card {
+   background: var(--background-card);
+   padding: 24px;
+   border-radius: var(--radius-md);
+   box-shadow: var(--shadow-sm);
+   border: 1px solid #E2E8F0;
+   transition: transform 0.2s;
+ }
+ 
+ .stat-card:hover {
+   transform: translateY(-2px);
+   box-shadow: var(--shadow-md);
+ }
+ 
+ .stat-card h3 {
+   font-size: 0.9rem;
+   color: var(--text-muted);
+   font-weight: 500;
+   margin-bottom: 8px;
+ }
+ 
+ .stat-value {
+   font-size: 2rem;
+   font-weight: 700;
+   color: var(--text-main);
+ }
+
+ /* --- LOADING SCREEN --- */
+.loading-screen {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   font-size: 1.2rem;
+   color: var(--primary-color);
+   background-color: var(--background-body);
+}
+
+/* --- MELHORIAS NOS CARDS (Ícones) --- */
+.stat-card {
+   display: flex;
+   align-items: center;
+   gap: 16px; /* Espaço entre ícone e texto */
+}
+
+.icon-box {
+   width: 48px;
+   height: 48px;
+   border-radius: var(--radius-md);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1.5rem;
+   flex-shrink: 0; /* Impede que o ícone amasse em telas pequenas */
+}
+
+.icon-box.blue { background-color: #DBEAFE; color: #1E40AF; }
+.icon-box.green { background-color: #D1FAE5; color: #065F46; }
+.icon-box.purple { background-color: #F3E8FF; color: #6B21A8; }
+
+/* --- SEÇÕES E TABELAS RESPONSIVAS --- */
+.section-container {
+   margin-top: 40px;
+}
+
+.section-container h2 {
+   font-size: 1.25rem;
+   margin-bottom: 16px;
+   color: var(--text-main);
+}
+
+/* Container que permite rolagem horizontal no mobile */
+.table-responsive {
+   overflow-x: auto;
+   background: var(--background-card);
+   border-radius: var(--radius-md);
+   box-shadow: var(--shadow-sm);
+   border: 1px solid #E2E8F0;
+}
+
+.custom-table {
+   width: 100%;
+   border-collapse: collapse;
+   min-width: 500px; /* Força largura mínima para não espremer colunas no mobile */
+}
+
+.custom-table th, 
+.custom-table td {
+   padding: 16px;
+   text-align: left;
+   border-bottom: 1px solid #E2E8F0;
+}
+
+.custom-table th {
+   background-color: #F8FAFC;
+   color: var(--text-muted);
+   font-weight: 600;
+   font-size: 0.85rem;
+   text-transform: uppercase;
+}
+
+.custom-table tr:last-child td {
+   border-bottom: none;
+}
+
+.badge-count {
+   background-color: #EEF2FF;
+   color: var(--primary-color);
+   padding: 4px 10px;
+   border-radius: 99px;
+   font-weight: 600;
+   font-size: 0.85rem;
+}
+
+/* --- AJUSTES RESPONSIVOS (MOBILE) --- */
+@media (max-width: 600px) {
+   .navbar {
+       padding: 0 16px; /* Menos padding lateral */
+   }
+
+   .user-name {
+       display: none; /* Esconde o nome "Olá, Fulano" no mobile para economizar espaço */
+   }
+   
+   .content-container {
+       padding: 20px; /* Menos padding no conteúdo */
+   }
+
+   .page-header h1 {
+       font-size: 1.5rem;
+   }
+   
+   /* Grid vira coluna única automaticamente pelo minmax(250px), 
+      mas podemos forçar ajustes finos aqui se precisar */
+}
